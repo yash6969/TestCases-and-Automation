@@ -33,12 +33,12 @@ public class HomePage {
     public void tabclick() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            By sportsSelector = By.cssSelector("a.header_item-links_link[aria-label='Sports'][href='/sports']");
+            By sportsSelector = By.xpath("//a[normalize-space() = 'Sports' or @href='/sports']");
             WebElement sports = wait.until(ExpectedConditions.elementToBeClickable(sportsSelector));
             sports.click();
-            Thread.sleep(4000); // Wait for 4 seconds after clicking
         } catch (Exception e) {
             System.out.println("Failed to click Sports tab: " + e.getMessage());
         }
+
     }
 }

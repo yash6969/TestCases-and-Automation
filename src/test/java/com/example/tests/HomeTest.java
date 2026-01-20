@@ -3,13 +3,11 @@ package com.example.tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-@Test(singleThreaded = true)
 public class HomeTest extends BaseTest {
 
     @Test(priority = 1)
@@ -18,7 +16,7 @@ public class HomeTest extends BaseTest {
         page.open();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        By sportsLink = By.cssSelector("a.header_item-links_link[aria-label='Sports'][href='/sports']");
+        By sportsLink = By.xpath("//a[normalize-space() = 'Sports' or contains(@href,'/sports')]");
         wait.until(ExpectedConditions.visibilityOfElementLocated(sportsLink));
     }
 
